@@ -1,5 +1,8 @@
+export const dynamic = 'force-dynamic'
+
 import { getBrand } from '@/lib/brands'
 import GeoAttorneyLoader from '@/components/GeoAttorneyLoader'
+import StateFlagImg from '@/components/StateFlagImg'
 import Link from 'next/link'
 import { STATES } from '@/lib/states'
 
@@ -211,11 +214,11 @@ export default function HomePage() {
                 href={`/alimony-laws/${state.slug}`}
                 className={`p-3 rounded-lg border text-center text-sm font-medium transition-colors hover:border-${isNoAlimony ? 'blue' : 'violet'}-400 hover:bg-${isNoAlimony ? 'blue' : 'violet'}-50 border-gray-200 text-gray-700 hover:text-gray-900`}
               >
-                <img
+                <StateFlagImg
                   src={getStateFlagUrl(state.code)}
                   alt={`${state.name} flag`}
                   className="w-12 h-7 object-cover rounded mx-auto mb-1 shadow-sm border border-gray-200"
-                  onError={(e) => { (e.target as HTMLImageElement).style.display='none' }}
+                  
                 />
                 <span className="block text-xs font-bold text-gray-400">{state.code}</span>
                 <span className="text-xs">{state.name}</span>

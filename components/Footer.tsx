@@ -7,6 +7,7 @@ const isNoAlimony = brand.id === 'noalimony'
 const footerBg = isNoAlimony ? 'bg-slate-900' : 'bg-indigo-950'
 const accentColor = isNoAlimony ? 'text-sky-400' : 'text-amber-400'
 
+
 export default function Footer() {
   const featuredStates = STATES.filter(s =>
     ['california', 'new-york', 'florida', 'texas', 'illinois'].includes(s.slug)
@@ -23,7 +24,10 @@ export default function Footer() {
               {brand.siteName}
             </h3>
             <p className="text-sm text-gray-400 leading-relaxed">{brand.description}</p>
-            <p className="text-xs text-gray-500 mt-4">Powered by LegalLeads Platform</p>
+            <a href="https://knowlegalleads.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 mt-4 text-xs text-gray-500 hover:text-gray-300 transition-colors group">
+              <span className="text-amber-500 font-bold tracking-tight group-hover:text-amber-400">⚖</span>
+              <span>Powered by <span className="font-semibold">KnowLegalLeads.com</span></span>
+            </a>
           </div>
 
           {/* Navigation */}
@@ -83,7 +87,8 @@ export default function Footer() {
               <strong className="text-gray-400">FTC Disclosure:</strong> Attorney profiles displayed on this site represent paid subscribers. Placement is determined by subscription and geographic targeting.
             </p>
             <p className="mt-4 text-gray-600">
-              © {new Date().getFullYear()} {brand.siteName}. All rights reserved. Powered by LegalLeads Platform.
+              © {new Date().getFullYear()} {brand.siteName}. All rights reserved. Powered by{' '}
+              <a href="https://knowlegalleads.com" target="_blank" rel="noopener noreferrer" className="font-semibold hover:text-gray-400 transition-colors">KnowLegalLeads.com</a>
             </p>
           </div>
         </div>
