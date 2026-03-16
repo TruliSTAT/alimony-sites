@@ -2,29 +2,8 @@ export const dynamic = 'force-dynamic'
 
 import { getBrand } from '@/lib/brands'
 import GeoAttorneyLoader from '@/components/GeoAttorneyLoader'
-import StateFlagImg from '@/components/StateFlagImg'
 import Link from 'next/link'
 import { STATES } from '@/lib/states'
-
-// State flag images from CivilServiceUSA public repo
-const STATE_SLUGS: Record<string, string> = {
-  AL:'alabama', AK:'alaska', AZ:'arizona', AR:'arkansas', CA:'california',
-  CO:'colorado', CT:'connecticut', DE:'delaware', FL:'florida', GA:'georgia',
-  HI:'hawaii', ID:'idaho', IL:'illinois', IN:'indiana', IA:'iowa',
-  KS:'kansas', KY:'kentucky', LA:'louisiana', ME:'maine', MD:'maryland',
-  MA:'massachusetts', MI:'michigan', MN:'minnesota', MS:'mississippi', MO:'missouri',
-  MT:'montana', NE:'nebraska', NV:'nevada', NH:'new-hampshire', NJ:'new-jersey',
-  NM:'new-mexico', NY:'new-york', NC:'north-carolina', ND:'north-dakota', OH:'ohio',
-  OK:'oklahoma', OR:'oregon', PA:'pennsylvania', RI:'rhode-island', SC:'south-carolina',
-  SD:'south-dakota', TN:'tennessee', TX:'texas', UT:'utah', VT:'vermont',
-  VA:'virginia', WA:'washington', WV:'west-virginia', WI:'wisconsin', WY:'wyoming'
-}
-
-function getStateFlagUrl(code: string): string {
-  const slug = STATE_SLUGS[code]
-  if (!slug) return ''
-  return `https://raw.githubusercontent.com/CivilServiceUSA/us-states/master/images/flags/${slug}-flag-small.jpg`
-}
 
 const brand = getBrand()
 const isNoAlimony = brand.id === 'noalimony'
@@ -200,7 +179,7 @@ export default function HomePage() {
               <p className="text-gray-600">Laws vary significantly by state. Find your state below.</p>
             </div>
             <Link
-              href="/alimony-laws/california"
+              href="/alimony-laws"
               className={`text-sm font-semibold ${isNoAlimony ? 'text-blue-700' : 'text-violet-700'} hover:underline`}
             >
               View All 50 States →
@@ -214,14 +193,8 @@ export default function HomePage() {
                 href={`/alimony-laws/${state.slug}`}
                 className={`p-3 rounded-lg border text-center text-sm font-medium transition-colors hover:border-${isNoAlimony ? 'blue' : 'violet'}-400 hover:bg-${isNoAlimony ? 'blue' : 'violet'}-50 border-gray-200 text-gray-700 hover:text-gray-900`}
               >
-                <StateFlagImg
-                  src={getStateFlagUrl(state.code)}
-                  alt={`${state.name} flag`}
-                  className="w-12 h-7 object-cover rounded mx-auto mb-1 shadow-sm border border-gray-200"
-                  
-                />
-                <span className="block text-xs font-bold text-gray-400">{state.code}</span>
-                <span className="text-xs">{state.name}</span>
+                <span className="block text-xs font-bold text-gray-500 mb-0.5">{state.code}</span>
+                <span className="text-xs leading-tight">{state.name}</span>
               </Link>
             ))}
           </div>

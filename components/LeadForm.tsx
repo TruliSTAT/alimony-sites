@@ -150,13 +150,21 @@ export default function LeadForm({ attorneyId, userZip, onSubmit, compact = fals
       <button
         type="submit"
         disabled={loading}
+        data-analytics='"Lead Form Submit"'
         className={`${submitBg} text-white font-semibold px-6 py-3 rounded-lg transition-colors w-full disabled:opacity-60`}
       >
         {loading ? 'Submitting...' : brand.heroCTA}
       </button>
 
-      <p className="text-xs text-gray-500 text-center">
-        By submitting, you consent to being contacted by an attorney. No attorney-client relationship is formed.
+      <p className="text-xs text-gray-500 leading-relaxed">
+        By submitting this form, you consent to be contacted by attorneys and their representatives
+        via telephone, text message, and email regarding your legal matter. Message and data rates
+        may apply. You may opt out at any time. Submission does not create an attorney-client
+        relationship. This is attorney advertising.{' '}
+        <a href="/privacy" className="underline hover:text-gray-300 transition-colors">
+          See our Privacy Policy
+        </a>
+        .
       </p>
     </form>
   )

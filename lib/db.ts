@@ -76,7 +76,9 @@ function initSchema(db: Database.Database) {
       zip           TEXT,
       ip_address    TEXT,
       routed        INTEGER DEFAULT 0,          -- emailed to attorney?
-      created_at    TEXT DEFAULT (datetime('now'))
+      created_at    TEXT DEFAULT (datetime('now')),
+      quality_score INTEGER DEFAULT 100,
+      quality_flag  TEXT DEFAULT 'good'
     );
 
     -- Dashboard users (law firm logins)
@@ -99,6 +101,14 @@ function initSchema(db: Database.Database) {
       created_at  TEXT DEFAULT (datetime('now'))
     );
   `)
+
+  // Migrate existing DBs — add columns if they don't exist yet
+  try {
+    db.exec(`ALTER TABLE leads ADD COLUMN quality_score INTEGER DEFAULT 100`)
+  } catch { /* column already exists */ }
+  try {
+    db.exec(`ALTER TABLE leads ADD COLUMN quality_flag TEXT DEFAULT 'good'`)
+  } catch { /* column already exists */ }
 }
 
 // ─── Attorney queries ──────────────────────────────────────────────────────────
@@ -173,8 +183,8 @@ export function removeZipCode(zip: string, attorneyId: number) {
 export function createLead(data: Partial<Lead>) {
   const db = getDb()
   const result = db.prepare(`
-    INSERT INTO leads (attorney_id, brand, name, email, phone, state, situation, zip, ip_address)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+    INSERT INTO leads (attorney_id, brand, name, email, phone, state, situation, zip, ip_address, quality_score, quality_flag)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `).run(
     data.attorney_id || null,
     data.brand || 'noalimony',
@@ -185,8 +195,29 @@ export function createLead(data: Partial<Lead>) {
     data.situation || null,
     data.zip || null,
     data.ip_address || null,
+    data.quality_score ?? 100,
+    data.quality_flag ?? 'good',
   )
   return result.lastInsertRowid as number
+}
+
+export function checkDuplicateLead(email: string, phone: string | null, brand: string): boolean {
+  const db = getDb()
+  const windowAgo = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString()
+  if (phone) {
+    const row = db.prepare(`
+      SELECT id FROM leads
+      WHERE brand = ? AND created_at >= ? AND (email = ? OR phone = ?)
+      LIMIT 1
+    `).get(brand, windowAgo, email, phone)
+    return !!row
+  }
+  const row = db.prepare(`
+    SELECT id FROM leads
+    WHERE brand = ? AND created_at >= ? AND email = ?
+    LIMIT 1
+  `).get(brand, windowAgo, email)
+  return !!row
 }
 
 export function getLeadsByAttorney(attorneyId: number) {
@@ -271,6 +302,8 @@ export interface Lead {
   ip_address: string | null
   routed: number
   created_at: string
+  quality_score: number
+  quality_flag: string
 }
 
 export interface User {

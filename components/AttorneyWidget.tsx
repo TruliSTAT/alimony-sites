@@ -45,6 +45,7 @@ export default function AttorneyWidget({ attorney, userZip }: AttorneyWidgetProp
           {!showLeadForm ? (
             <button
               onClick={() => setShowLeadForm(true)}
+              data-analytics='"Attorney View"'
               className={`${ctaBg} text-white font-semibold px-8 py-3 rounded-lg transition-colors w-full`}
             >
               {brand.heroCTA}
@@ -120,6 +121,7 @@ export default function AttorneyWidget({ attorney, userZip }: AttorneyWidgetProp
       {!showLeadForm ? (
         <button
           onClick={() => setShowLeadForm(true)}
+          data-analytics='"Attorney View"'
           className={`${ctaBg} text-white font-semibold px-6 py-3 rounded-lg transition-colors w-full`}
         >
           Contact {attorney.name.split(' ')[0]} Now

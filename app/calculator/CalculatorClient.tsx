@@ -159,6 +159,7 @@ export default function CalculatorClient() {
 
           <button
             onClick={handleCalculate}
+            data-analytics='"Calculator Used"'
             className={`${btnBg} text-white font-bold px-8 py-4 rounded-xl w-full text-lg transition-colors`}
           >
             Calculate Estimate

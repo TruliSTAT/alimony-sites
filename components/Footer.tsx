@@ -14,6 +14,11 @@ export default function Footer() {
   )
 
   return (
+    <>
+      {/* Attorney Advertisement Banner */}
+      <div className="bg-gray-50 border-t border-gray-100">
+        <p className="text-xs text-gray-400 text-center py-1">Attorney Advertisement</p>
+      </div>
     <footer className={`${footerBg} text-gray-300`}>
       {/* Main footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -94,5 +99,6 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+    </>
   )
 }

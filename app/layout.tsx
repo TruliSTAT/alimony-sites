@@ -4,6 +4,7 @@ import './globals.css'
 import { getBrand } from '@/lib/brands'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import PlausibleAnalytics from '@/components/PlausibleAnalytics'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -28,6 +29,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <PlausibleAnalytics domain={brand.domain} />
+      </head>
       <body className={`${inter.className} min-h-screen flex flex-col bg-white`}>
         <Header />
         <main className="flex-1">
