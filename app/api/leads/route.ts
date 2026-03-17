@@ -5,6 +5,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createLead, checkDuplicateLead } from '@/lib/db'
 import { getClientIP } from '@/lib/geo'
 import { validateLead } from '@/lib/validateLead'
+import { notifyNewLead } from '@/lib/notify'
 
 export const dynamic = 'force-dynamic'
 
@@ -76,6 +77,20 @@ export async function POST(req: NextRequest) {
       quality_score: finalScore,
       quality_flag: qualityFlag,
     })
+
+    // ── Fire notifications (non-blocking) ─────────────────────────────────────
+    notifyNewLead({
+      leadId,
+      name,
+      email,
+      phone: phone || null,
+      state: state || null,
+      situation: situation || null,
+      zip: zip || null,
+      brand: siteBrand,
+      quality_score: finalScore,
+      quality_flag: qualityFlag,
+    }).catch(err => console.error('[notify] notification error:', err))
 
     return NextResponse.json({ success: true, leadId })
   } catch (err) {
