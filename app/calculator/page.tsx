@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 
 export default function CalculatorPage() {
   const isNoAlimony = brand.id === 'noalimony'
-  const accentColor = isNoAlimony ? 'text-blue-800' : 'text-violet-800'
-  const heroBg = isNoAlimony ? 'from-blue-900 to-slate-900' : 'from-violet-900 to-indigo-950'
+  const accentColor = isNoAlimony ? 'text-blue-800' : 'text-teal-800'
+  const heroBg = isNoAlimony ? 'from-blue-900 to-slate-900' : 'from-teal-900 to-teal-950'
 
   return (
     <>
@@ -43,7 +43,7 @@ export default function CalculatorPage() {
             <p className="font-semibold text-gray-800">⚠️ Important Disclaimers</p>
             <p>This calculator provides rough educational estimates only. Actual alimony awards are determined by courts based on many factors including but not limited to: specific state statutes, judicial discretion, the couple's standard of living, each spouse's earning capacity, contributions to the marriage, fault (in applicable states), and negotiation between parties.</p>
             <p>This tool does not constitute legal advice and no attorney-client relationship is formed by its use. For accurate guidance specific to your situation, consult a licensed family law attorney in your state.</p>
-            <p className={`font-semibold ${isNoAlimony ? 'text-blue-700' : 'text-violet-700'}`}>
+            <p className={`font-semibold ${isNoAlimony ? 'text-blue-700' : 'text-teal-700'}`}>
               Powered by {brand.siteName} — Legal Marketing Platform
             </p>
           </div>

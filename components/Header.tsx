@@ -7,8 +7,8 @@ import { useState } from 'react'
 const brand = getBrand()
 
 const isNoAlimony = brand.id === 'noalimony'
-const primaryColor = isNoAlimony ? 'bg-blue-800' : 'bg-violet-800'
-const hoverColor = isNoAlimony ? 'hover:bg-blue-700' : 'hover:bg-violet-700'
+const primaryColor = isNoAlimony ? 'bg-blue-800' : 'bg-teal-800'
+const hoverColor = isNoAlimony ? 'hover:bg-blue-700' : 'hover:bg-teal-700'
 const accentColor = isNoAlimony ? 'text-sky-300' : 'text-amber-300'
 const ctaBg = isNoAlimony ? 'bg-emerald-500 hover:bg-emerald-400' : 'bg-amber-500 hover:bg-amber-400'
 

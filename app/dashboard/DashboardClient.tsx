@@ -8,9 +8,9 @@ import type { SessionPayload } from '@/lib/auth'
 
 const brand = getBrand()
 const isNoAlimony = brand.id === 'noalimony'
-const navBg = isNoAlimony ? 'bg-blue-800' : 'bg-violet-800'
-const activeBg = isNoAlimony ? 'bg-blue-900' : 'bg-violet-900'
-const btnBg = isNoAlimony ? 'bg-blue-700 hover:bg-blue-600' : 'bg-violet-700 hover:bg-violet-600'
+const navBg = isNoAlimony ? 'bg-blue-800' : 'bg-teal-800'
+const activeBg = isNoAlimony ? 'bg-blue-900' : 'bg-teal-900'
+const btnBg = isNoAlimony ? 'bg-blue-700 hover:bg-blue-600' : 'bg-teal-700 hover:bg-teal-600'
 const accentColor = isNoAlimony ? 'text-sky-400' : 'text-amber-400'
 
 interface Props {
@@ -213,21 +213,21 @@ export default function DashboardClient({ session, attorney: initialAttorney, le
                   <h3 className="font-serif font-bold text-lg mb-3">Getting Started</h3>
                   <ol className="space-y-3 text-sm text-gray-700">
                     <li className="flex items-start space-x-3">
-                      <span className={`${isNoAlimony ? 'bg-blue-100 text-blue-800' : 'bg-violet-100 text-violet-800'} rounded-full w-6 h-6 flex items-center justify-center font-bold flex-shrink-0`}>1</span>
+                      <span className={`${isNoAlimony ? 'bg-blue-100 text-blue-800' : 'bg-teal-100 text-teal-800'} rounded-full w-6 h-6 flex items-center justify-center font-bold flex-shrink-0`}>1</span>
                       <div>
                         <strong>Complete your profile</strong> — Add your name, firm, photo, and bio.
                         <button onClick={() => setActiveTab('profile')} className={`ml-2 ${accentColor} hover:underline`}>Go →</button>
                       </div>
                     </li>
                     <li className="flex items-start space-x-3">
-                      <span className={`${isNoAlimony ? 'bg-blue-100 text-blue-800' : 'bg-violet-100 text-violet-800'} rounded-full w-6 h-6 flex items-center justify-center font-bold flex-shrink-0`}>2</span>
+                      <span className={`${isNoAlimony ? 'bg-blue-100 text-blue-800' : 'bg-teal-100 text-teal-800'} rounded-full w-6 h-6 flex items-center justify-center font-bold flex-shrink-0`}>2</span>
                       <div>
                         <strong>Subscribe to zip codes</strong> — Add zip codes in your service area.
                         <button onClick={() => setActiveTab('zips')} className={`ml-2 ${accentColor} hover:underline`}>Go →</button>
                       </div>
                     </li>
                     <li className="flex items-start space-x-3">
-                      <span className={`${isNoAlimony ? 'bg-blue-100 text-blue-800' : 'bg-violet-100 text-violet-800'} rounded-full w-6 h-6 flex items-center justify-center font-bold flex-shrink-0`}>3</span>
+                      <span className={`${isNoAlimony ? 'bg-blue-100 text-blue-800' : 'bg-teal-100 text-teal-800'} rounded-full w-6 h-6 flex items-center justify-center font-bold flex-shrink-0`}>3</span>
                       <div>
                         <strong>Start receiving leads</strong> — Your profile appears automatically to visitors in your zip codes.
                       </div>

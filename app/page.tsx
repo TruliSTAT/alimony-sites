@@ -10,7 +10,7 @@ const isNoAlimony = brand.id === 'noalimony'
 
 const heroBg = isNoAlimony
   ? 'from-blue-900 via-blue-800 to-slate-900'
-  : 'from-violet-900 via-violet-800 to-indigo-950'
+  : 'from-teal-900 via-teal-800 to-teal-950'
 
 const accentColor = isNoAlimony ? 'text-sky-400' : 'text-amber-400'
 const ctaBg = isNoAlimony ? 'bg-emerald-500 hover:bg-emerald-400' : 'bg-amber-500 hover:bg-amber-400'
@@ -18,8 +18,8 @@ const secondaryBtn = isNoAlimony
   ? 'border-sky-400 text-sky-400 hover:bg-sky-400/10'
   : 'border-amber-400 text-amber-400 hover:bg-amber-400/10'
 
-const featuresBg = isNoAlimony ? 'bg-blue-50' : 'bg-violet-50'
-const featureIconBg = isNoAlimony ? 'bg-blue-800' : 'bg-violet-800'
+const featuresBg = isNoAlimony ? 'bg-blue-50' : 'bg-teal-50'
+const featureIconBg = isNoAlimony ? 'bg-blue-800' : 'bg-teal-800'
 
 export default function HomePage() {
   const featuredStates = STATES
@@ -114,7 +114,7 @@ export default function HomePage() {
             ].map(item => (
               <div key={item.step} className="text-center p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow">
                 <div className="text-4xl mb-4">{item.icon}</div>
-                <div className={`text-sm font-bold ${isNoAlimony ? 'text-blue-600' : 'text-violet-600'} uppercase tracking-wide mb-2`}>
+                <div className={`text-sm font-bold ${isNoAlimony ? 'text-blue-600' : 'text-teal-600'} uppercase tracking-wide mb-2`}>
                   Step {item.step}
                 </div>
                 <h3 className="text-xl font-serif font-bold mb-3">{item.title}</h3>
@@ -180,7 +180,7 @@ export default function HomePage() {
             </div>
             <Link
               href="/alimony-laws"
-              className={`text-sm font-semibold ${isNoAlimony ? 'text-blue-700' : 'text-violet-700'} hover:underline`}
+              className={`text-sm font-semibold ${isNoAlimony ? 'text-blue-700' : 'text-teal-700'} hover:underline`}
             >
               View All 50 States →
             </Link>
@@ -191,7 +191,7 @@ export default function HomePage() {
               <Link
                 key={state.slug}
                 href={`/alimony-laws/${state.slug}`}
-                className={`p-3 rounded-lg border text-center text-sm font-medium transition-colors hover:border-${isNoAlimony ? 'blue' : 'violet'}-400 hover:bg-${isNoAlimony ? 'blue' : 'violet'}-50 border-gray-200 text-gray-700 hover:text-gray-900`}
+                className={`p-3 rounded-lg border text-center text-sm font-medium transition-colors hover:border-${isNoAlimony ? 'blue' : 'teal'}-400 hover:bg-${isNoAlimony ? 'blue' : 'teal'}-50 border-gray-200 text-gray-700 hover:text-gray-900`}
               >
                 <span className="block text-xs font-bold text-gray-500 mb-0.5">{state.code}</span>
                 <span className="text-xs leading-tight">{state.name}</span>

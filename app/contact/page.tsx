@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 }
 
 export default function ContactPage() {
-  const heroBg = isNoAlimony ? 'from-blue-900 to-slate-900' : 'from-violet-900 to-indigo-950'
+  const heroBg = isNoAlimony ? 'from-blue-900 to-slate-900' : 'from-teal-900 to-teal-950'
 
   return (
     <>

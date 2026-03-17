@@ -17,14 +17,14 @@ module.exports = {
           light: '#eff6ff',
           text: '#1e293b',
         },
-        // knowalimony.com — purples/golds
+        // knowalimony.com — Tiffany blue
         'brand-know': {
-          primary: '#7c3aed',    // violet
-          secondary: '#d97706',  // amber gold
-          accent: '#a855f7',     // purple
-          dark: '#1e1b4b',
-          light: '#faf5ff',
-          text: '#1e1b4b',
+          primary: '#0ABAB5',    // Tiffany blue
+          secondary: '#0f766e',  // deep teal
+          accent: '#5eead4',     // light teal
+          dark: '#042f2e',
+          light: '#f0fdfa',
+          text: '#042f2e',
         },
       },
       fontFamily: {

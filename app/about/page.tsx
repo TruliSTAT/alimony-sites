@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 }
 
 export default function AboutPage() {
-  const heroBg = isNoAlimony ? 'from-blue-900 to-slate-900' : 'from-violet-900 to-indigo-950'
+  const heroBg = isNoAlimony ? 'from-blue-900 to-slate-900' : 'from-teal-900 to-teal-950'
   const accentColor = isNoAlimony ? 'text-sky-400' : 'text-amber-400'
 
   return (
@@ -65,7 +65,7 @@ export default function AboutPage() {
             </p>
             <Link
               href="/dashboard"
-              className={`inline-block mt-4 ${isNoAlimony ? 'bg-blue-800 hover:bg-blue-700' : 'bg-violet-700 hover:bg-violet-600'} text-white font-semibold px-6 py-3 rounded-lg transition-colors`}
+              className={`inline-block mt-4 ${isNoAlimony ? 'bg-blue-800 hover:bg-blue-700' : 'bg-teal-700 hover:bg-teal-600'} text-white font-semibold px-6 py-3 rounded-lg transition-colors`}
             >
               Attorney Portal →
             </Link>

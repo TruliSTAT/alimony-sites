@@ -6,7 +6,7 @@ import { STATES } from '@/lib/states'
 
 const brand = getBrand()
 const isNoAlimony = brand.id === 'noalimony'
-const submitBg = isNoAlimony ? 'bg-blue-600 hover:bg-blue-500' : 'bg-violet-600 hover:bg-violet-500'
+const submitBg = isNoAlimony ? 'bg-blue-600 hover:bg-blue-500' : 'bg-teal-600 hover:bg-teal-500'
 
 interface LeadFormProps {
   attorneyId?: number

@@ -8,9 +8,9 @@ import Link from 'next/link'
 
 const brand = getBrand()
 const isNoAlimony = brand.id === 'noalimony'
-const btnBg = isNoAlimony ? 'bg-blue-800 hover:bg-blue-700' : 'bg-violet-700 hover:bg-violet-600'
-const accentColor = isNoAlimony ? 'text-blue-800' : 'text-violet-800'
-const resultBg = isNoAlimony ? 'from-blue-800 to-slate-900' : 'from-violet-800 to-indigo-950'
+const btnBg = isNoAlimony ? 'bg-blue-800 hover:bg-blue-700' : 'bg-teal-700 hover:bg-teal-600'
+const accentColor = isNoAlimony ? 'text-blue-800' : 'text-teal-800'
+const resultBg = isNoAlimony ? 'from-blue-800 to-slate-900' : 'from-teal-800 to-teal-950'
 
 function formatCurrency(n: number) {
   return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n)
@@ -231,7 +231,7 @@ export default function CalculatorClient() {
           <div className="mt-4">
             <Link
               href={`/alimony-laws/${STATES.find(s => s.code === inputs.state)?.slug || inputs.state.toLowerCase()}`}
-              className={`text-sm ${isNoAlimony ? 'text-blue-700' : 'text-violet-700'} hover:underline`}
+              className={`text-sm ${isNoAlimony ? 'text-blue-700' : 'text-teal-700'} hover:underline`}
             >
               Learn about {STATES.find(s => s.code === inputs.state)?.name} alimony laws →
             </Link>

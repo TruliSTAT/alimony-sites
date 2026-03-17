@@ -12,18 +12,18 @@ export const metadata: Metadata = {
 }
 
 export default function AlimonyLawsIndexPage() {
-  const accentColor = isNoAlimony ? 'text-blue-700' : 'text-violet-700'
-  const hoverBorder = isNoAlimony ? 'hover:border-blue-400 hover:bg-blue-50' : 'hover:border-violet-400 hover:bg-violet-50'
+  const accentColor = isNoAlimony ? 'text-blue-700' : 'text-teal-700'
+  const hoverBorder = isNoAlimony ? 'hover:border-blue-400 hover:bg-blue-50' : 'hover:border-teal-400 hover:bg-teal-50'
   const heroBg = isNoAlimony
     ? 'from-blue-900 via-blue-800 to-slate-900'
-    : 'from-violet-900 via-violet-800 to-indigo-950'
+    : 'from-teal-900 via-teal-800 to-teal-950'
 
   return (
     <>
       {/* Hero */}
       <section className={`bg-gradient-to-br ${heroBg} text-white py-14 px-4`}>
         <div className="max-w-4xl mx-auto text-center">
-          <p className={`text-sm font-bold uppercase tracking-widest mb-3 ${isNoAlimony ? 'text-blue-300' : 'text-violet-300'}`}>
+          <p className={`text-sm font-bold uppercase tracking-widest mb-3 ${isNoAlimony ? 'text-blue-300' : 'text-teal-300'}`}>
             50-State Guide
           </p>
           <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">
@@ -67,13 +67,13 @@ export default function AlimonyLawsIndexPage() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/calculator"
-              className={`${isNoAlimony ? 'bg-blue-800 hover:bg-blue-700' : 'bg-violet-800 hover:bg-violet-700'} text-white font-bold px-6 py-3 rounded-xl text-sm transition-colors`}
+              className={`${isNoAlimony ? 'bg-blue-800 hover:bg-blue-700' : 'bg-teal-700 hover:bg-teal-600'} text-white font-bold px-6 py-3 rounded-xl text-sm transition-colors`}
             >
               Try the Calculator
             </Link>
             <Link
               href="/contact"
-              className={`border-2 ${isNoAlimony ? 'border-blue-700 text-blue-700 hover:bg-blue-50' : 'border-violet-700 text-violet-700 hover:bg-violet-50'} font-bold px-6 py-3 rounded-xl text-sm transition-colors`}
+              className={`border-2 ${isNoAlimony ? 'border-blue-700 text-blue-700 hover:bg-blue-50' : 'border-teal-700 text-teal-700 hover:bg-teal-50'} font-bold px-6 py-3 rounded-xl text-sm transition-colors`}
             >
               Find an Attorney
             </Link>

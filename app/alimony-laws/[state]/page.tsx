@@ -30,10 +30,10 @@ export default function StatePage({ params }: Props) {
   const state = getStateBySlug(params.state)
   if (!state) notFound()
 
-  const heroBg = isNoAlimony ? 'from-blue-900 to-slate-900' : 'from-violet-900 to-indigo-950'
+  const heroBg = isNoAlimony ? 'from-blue-900 to-slate-900' : 'from-teal-900 to-teal-950'
   const accentColor = isNoAlimony ? 'text-sky-400' : 'text-amber-400'
-  const tagBg = isNoAlimony ? 'bg-blue-100 text-blue-800' : 'bg-violet-100 text-violet-800'
-  const linkColor = isNoAlimony ? 'text-blue-700' : 'text-violet-700'
+  const tagBg = isNoAlimony ? 'bg-blue-100 text-blue-800' : 'bg-teal-100 text-teal-800'
+  const linkColor = isNoAlimony ? 'text-blue-700' : 'text-teal-700'
 
   const currentYear = new Date().getFullYear()
 
@@ -151,7 +151,7 @@ export default function StatePage({ params }: Props) {
             </div>
 
             {/* Calculator CTA */}
-            <div className={`card border-2 ${isNoAlimony ? 'border-blue-200 bg-blue-50' : 'border-violet-200 bg-violet-50'}`}>
+            <div className={`card border-2 ${isNoAlimony ? 'border-blue-200 bg-blue-50' : 'border-teal-200 bg-teal-50'}`}>
               <div className="flex items-center justify-between">
                 <div>
                   <h3 className="font-serif font-bold text-xl mb-2">
@@ -163,7 +163,7 @@ export default function StatePage({ params }: Props) {
                 </div>
                 <Link
                   href={`/calculator?state=${state.code}`}
-                  className={`${isNoAlimony ? 'bg-blue-800 hover:bg-blue-700' : 'bg-violet-700 hover:bg-violet-600'} text-white font-bold px-6 py-3 rounded-xl transition-colors flex-shrink-0 ml-4`}
+                  className={`${isNoAlimony ? 'bg-blue-800 hover:bg-blue-700' : 'bg-teal-700 hover:bg-teal-600'} text-white font-bold px-6 py-3 rounded-xl transition-colors flex-shrink-0 ml-4`}
                 >
                   Calculate →
                 </Link>

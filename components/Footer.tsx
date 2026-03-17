@@ -4,7 +4,7 @@ import { STATES } from '@/lib/states'
 
 const brand = getBrand()
 const isNoAlimony = brand.id === 'noalimony'
-const footerBg = isNoAlimony ? 'bg-slate-900' : 'bg-indigo-950'
+const footerBg = isNoAlimony ? 'bg-slate-900' : 'bg-teal-950'
 const accentColor = isNoAlimony ? 'text-sky-400' : 'text-amber-400'
 
 

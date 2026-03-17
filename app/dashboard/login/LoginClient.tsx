@@ -7,8 +7,8 @@ import Link from 'next/link'
 
 const brand = getBrand()
 const isNoAlimony = brand.id === 'noalimony'
-const heroBg = isNoAlimony ? 'from-blue-900 to-slate-900' : 'from-violet-900 to-indigo-950'
-const btnBg = isNoAlimony ? 'bg-blue-700 hover:bg-blue-600' : 'bg-violet-700 hover:bg-violet-600'
+const heroBg = isNoAlimony ? 'from-blue-900 to-slate-900' : 'from-teal-900 to-teal-950'
+const btnBg = isNoAlimony ? 'bg-blue-700 hover:bg-blue-600' : 'bg-teal-700 hover:bg-teal-600'
 const accentColor = isNoAlimony ? 'text-sky-400' : 'text-amber-400'
 
 export default function LoginClient() {

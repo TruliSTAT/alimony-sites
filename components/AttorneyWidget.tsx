@@ -27,11 +27,11 @@ export default function AttorneyWidget({ attorney, userZip }: AttorneyWidgetProp
 
   const bgGradient = isNoAlimony
     ? 'from-blue-800 to-blue-900'
-    : 'from-violet-800 to-indigo-900'
+    : 'from-teal-800 to-teal-900'
 
   const accentColor = isNoAlimony ? 'text-sky-300' : 'text-amber-300'
   const ctaBg = isNoAlimony ? 'bg-emerald-500 hover:bg-emerald-400' : 'bg-amber-500 hover:bg-amber-400'
-  const borderColor = isNoAlimony ? 'border-blue-600' : 'border-violet-600'
+  const borderColor = isNoAlimony ? 'border-blue-600' : 'border-teal-600'
 
   if (!attorney) {
     return (
