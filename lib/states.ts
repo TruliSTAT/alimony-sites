@@ -66,6 +66,7 @@ export const STATES: StateInfo[] = [
   { code: 'WV', name: 'West Virginia', slug: 'west-virginia', alimonyType: ['Alimony'], maxDuration: 'Discretionary', formula: 'Judge discretion', notes: 'West Virginia courts consider multiple factors including fault.', incomeSharePct: 0.28, maxYearsMultiplier: 0.4 },
   { code: 'WI', name: 'Wisconsin', slug: 'wisconsin', alimonyType: ['Maintenance'], maxDuration: 'Discretionary', formula: 'Needs-based', notes: 'Wisconsin is a community property state with no alimony formula.', incomeSharePct: 0.28, maxYearsMultiplier: 0.4 },
   { code: 'WY', name: 'Wyoming', slug: 'wyoming', alimonyType: ['Alimony'], maxDuration: 'Discretionary', formula: 'Judge discretion', notes: 'Wyoming courts weigh earning capacity, length of marriage, and standard of living.', incomeSharePct: 0.25, maxYearsMultiplier: 0.4 },
+  { code: 'DC', name: 'District of Columbia', slug: 'district-of-columbia', alimonyType: ['Spousal Support', 'Rehabilitative', 'Indefinite'], maxDuration: 'Discretionary; indefinite for long marriages', formula: 'Needs-based; income disparity considered', notes: 'DC courts award spousal support based on financial need and ability to pay. Long marriages may yield indefinite support. DC follows federal guidelines and Superior Court discretion.', incomeSharePct: 0.30, maxYearsMultiplier: 0.5 },
 ]
 
 export function getStateBySlug(slug: string): StateInfo | undefined {
