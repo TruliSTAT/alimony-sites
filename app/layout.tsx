@@ -35,11 +35,11 @@ export default async function RootLayout({
         <PlausibleAnalytics domain={brand.domain} />
       </head>
       <body className={`${inter.className} min-h-screen flex flex-col bg-white`}>
-        <Header />
+        <Header brand={brand} />
         <main className="flex-1">
           {children}
         </main>
-        <Footer />
+        <Footer brand={brand} />
       </body>
     </html>
   )

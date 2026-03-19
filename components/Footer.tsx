@@ -1,14 +1,12 @@
 import Link from 'next/link'
-import { getBrand } from '@/lib/brands'
+import { BrandConfig } from '@/lib/brands'
 import { STATES } from '@/lib/states'
 
-const brand = getBrand()
-const isNoAlimony = brand.id === 'noalimony'
-const footerBg = isNoAlimony ? 'bg-slate-900' : 'bg-teal-950'
-const accentColor = isNoAlimony ? 'text-sky-400' : 'text-amber-400'
 
-
-export default function Footer() {
+export default function Footer({ brand }: { brand: BrandConfig }) {
+  const isNoAlimony = brand.id === 'noalimony'
+  const footerBg = isNoAlimony ? 'bg-slate-900' : 'bg-teal-950'
+  const accentColor = isNoAlimony ? 'text-sky-400' : 'text-amber-400'
   const featuredStates = STATES.filter(s =>
     ['california', 'new-york', 'florida', 'texas', 'illinois'].includes(s.slug)
   )
