@@ -7,8 +7,9 @@ import { brands, BrandConfig } from './brands'
  */
 export async function getBrandServer(): Promise<BrandConfig> {
   const headersList = await headers()
+  // x-real-host set by CF Worker survives Cloudflare's header rewrites
   const host =
-    headersList.get('x-forwarded-host') ||
+    headersList.get('x-real-host') ||
     headersList.get('host') ||
     ''
   const domain = host.split(':')[0].replace(/^www\./, '').toLowerCase()
