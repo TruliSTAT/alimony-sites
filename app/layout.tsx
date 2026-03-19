@@ -1,32 +1,34 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { getBrand } from '@/lib/brands'
+import { getBrandServer } from '@/lib/getBrandServer'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import PlausibleAnalytics from '@/components/PlausibleAnalytics'
 
 const inter = Inter({ subsets: ['latin'] })
 
-const brand = getBrand()
-
-export const metadata: Metadata = {
-  title: {
-    default: brand.defaultTitle,
-    template: `%s | ${brand.siteName}`,
-  },
-  description: brand.defaultDescription,
-  openGraph: {
-    siteName: brand.siteName,
-    images: [{ url: brand.ogImage }],
-  },
+export async function generateMetadata(): Promise<Metadata> {
+  const brand = await getBrandServer()
+  return {
+    title: {
+      default: brand.defaultTitle,
+      template: `%s | ${brand.siteName}`,
+    },
+    description: brand.defaultDescription,
+    openGraph: {
+      siteName: brand.siteName,
+      images: [{ url: brand.ogImage }],
+    },
+  }
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const brand = await getBrandServer()
   return (
     <html lang="en">
       <head>

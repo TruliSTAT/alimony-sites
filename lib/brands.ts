@@ -136,6 +136,13 @@ export const brands: Record<BrandId, BrandConfig> = {
 }
 
 export function getBrand(): BrandConfig {
+  // Client-side: detect from actual hostname (handles multi-domain CF Worker routing)
+  if (typeof window !== 'undefined') {
+    const hostname = window.location.hostname.replace(/^www\./, '').toLowerCase()
+    if (hostname === 'noalimony.com') return noAlimonyBrand
+    if (hostname === 'knowalimony.com') return knowAlimonyBrand
+  }
+  // Server-side: fall back to build-time env var
   const brandId = (process.env.NEXT_PUBLIC_BRAND || 'noalimony') as BrandId
   return brands[brandId] || noAlimonyBrand
 }
